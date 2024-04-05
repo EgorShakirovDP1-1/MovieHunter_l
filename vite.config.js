@@ -6,6 +6,9 @@ import laravel from 'laravel-vite-plugin';
  
 
 export default defineConfig({
+    build: {
+        sourcemap: false,
+      },
     plugins: [
         vue(), 
         laravel({

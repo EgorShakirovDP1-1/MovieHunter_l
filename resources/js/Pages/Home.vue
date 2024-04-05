@@ -34,15 +34,7 @@
 	padding:0;
 	outline:0;
 }
-body {
-	font-size:12px;
-	line-height:1.3;
-	font-family:Arial, Helvetica, Sans-Serif;
-	background: #333;
-  background-image: linear-gradient(rgba(0, 12, 9, 0.7) .1em, transparent .1em), linear-gradient(90deg, rgba(18, 46, 40, 0.7) .1em, transparent .1em);
-  background-size: 1em 1em;
-	
-}
+
 
 a {
 	color:#e7b038;
@@ -239,7 +231,7 @@ h4 {
 	left:0;
 	width:152px;
 	height:214px;
-	background:url('css/images/image-hover.png');
+	
 	display:block;
 	z-index:5;
 	cursor:pointer;
@@ -274,13 +266,13 @@ h4 {
 	float:left;
 	width:60px;
 	height:11px;
-	background:url('css/images/stars.gif') no-repeat 0 0;
+	
 	margin-left:2px;
 }
 .rating .stars-in {
 	width:48px;
 	display:inline;
-	background:url('css/images/stars.gif') no-repeat 0 bottom;
+	
 	position:absolute;
 	height:11px;
 	font-size:0;
@@ -288,7 +280,7 @@ h4 {
 	text-indent:-4000px;
 }
 .comments {
-	background:url('css/images/comments.gif') no-repeat 0 center;
+	
 	padding-left:12px;
 	float:right;
 }

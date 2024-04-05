@@ -1,12 +1,14 @@
 <template>
+
     <nav>
         <ul>
             <li><inertia-link href="/">Home</inertia-link></li>
             <li><inertia-link href="/movies">Movies</inertia-link></li>
-            <li><inertia-link href="/Login">Login</inertia-link></li>
+            <li><inertia-link href="/login">Login</inertia-link></li>
             <li><inertia-link href="/favorites">Favorites</inertia-link></li>
         </ul>
     </nav>
+
 </template>
 
 <script>
@@ -16,7 +18,8 @@ import { InertiaLink } from '@inertiajs/inertia-vue3';
 export default {
     name: 'Navbar',
     components: {
-        InertiaLink
+        InertiaLink,
+     
     }
 }
 </script>
