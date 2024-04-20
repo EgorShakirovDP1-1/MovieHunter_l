@@ -2,7 +2,7 @@
 
     <nav>
         <ul>
-            <li><inertia-link href="/">Home</inertia-link></li>
+            <li><inertia-link href="/" >Home</inertia-link></li>
             <li><inertia-link href="/movies">Movies</inertia-link></li>
             <li><inertia-link href="/login">Login</inertia-link></li>
             <li><inertia-link href="/favorites">Favorites</inertia-link></li>
@@ -14,6 +14,7 @@
 <script>
 // @ts-ignore
 import { InertiaLink } from '@inertiajs/inertia-vue3';
+
 
 export default {
     name: 'Navbar',

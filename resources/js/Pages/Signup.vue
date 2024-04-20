@@ -1,64 +1,148 @@
 <template>
-    <AppLayout>
-        <template #default>
-            <div>
-                <h1>Signup</h1>
-                <form @submit="signup">
-                    <ul>
-  <li><input v-model="form.name" type="text" placeholder="Name"></li>
-  <li><input v-model="form.email" type="email" placeholder="Email"></li>
-  <li><input v-model="form.password" type="password" placeholder="Password"></li>
-</ul>
-<button @click="signup">Sign Up</button>
-</form>
-                <div id="login">
-                    <p><strong>Have an account? Register Here</strong></p>
-                    <button><inertia-link href="/login">Login</inertia-link></button>
-                </div>
-            </div>
-        </template>
-    </AppLayout>
+  <AppLayout>
+      <div
+          id="section"
+          class="row justify-content-center text-center mx-auto"
+      >
+          <div class="col-12 col-sm-8 col-md-6">
+              <form @submit.prevent="form.post('register')">
+                  <h1>Register</h1>
+                  <div class="form-group mt-3">
+                      <label for="name" class="text-dark">Name:</label><br />
+                      <input
+                          v-model="form.name"
+                          type="text"
+                          name="name"
+                          id="name"
+                          class="form-control border-primary"
+                      />
+                      <div v-if="errors.name" class="d-block mt-2">
+                          <span class="fs-5 text-danger">
+                              {{ errors.name }}
+                          </span>
+                      </div>
+                  </div>
+                  <div class="form-group mt-3">
+                      <label for="phone_number" class="text-dark"
+                          >Phone Number:</label
+                      ><br />
+                      <input
+                          v-model="form.phone_number"
+                          type="text"
+                          name="phone_number"
+                          id="phone_number"
+                          class="form-control border-primary"
+                      />
+                      <div v-if="errors.phone_number" class="d-block mt-2">
+                          <span class="fs-5 text-danger">
+                              {{ errors.phone_number }}
+                          </span>
+                      </div>
+                  </div>
+                  <div class="form-group mt-3">
+                      <label for="email" class="text-dark">Email:</label
+                      ><br />
+                      <input
+                          v-model="form.email"
+                          type="email"
+                          name="email"
+                          id="email"
+                          class="form-control"
+                      />
+                      <div v-if="errors.email" class="d-block mt-2">
+                          <span class="fs-5 text-danger">
+                              {{ errors.email }}
+                          </span>
+                      </div>
+                  </div>
+                  <div class="form-group mt-3">
+                      <label for="password" class="text-dark">Password:</label
+                      ><br />
+                      <input
+                          v-model="form.password"
+                          type="password"
+                          name="password"
+                          id="password"
+                          class="form-control"
+                      />
+                      <div v-if="errors.password" class="d-block mt-2">
+                          <span class="fs-5 text-danger">
+                              {{ errors.password }}
+                          </span>
+                      </div>
+                  </div>
+                  <div class="form-group mt-3">
+                      <label for="confirm-password" class="text-dark"
+                          >Confirm Password:</label
+                      ><br />
+                      <input
+                          v-model="form.password_confirmation"
+                          type="password"
+                          name="password_confirmation"
+                          class="form-control"
+                      />
+                      <div
+                          v-if="errors.password_confirmation"
+                          class="d-block mt-2"
+                      >
+                          <span class="fs-5 text-danger">
+                              {{ errors.password_confirmation }}
+                          </span>
+                      </div>
+                  </div>
+                  <div
+                      class="d-flex justify-content-end align-items-center my-3"
+                  >
+                      <div class="text-right">
+                          <a :href="route('login')" class="text-dark lead"
+                              >Login here</a
+                          >
+                      </div>
+                      <div class="form-group ms-3">
+                          <button
+                              type="submit"
+                              :disabled="form.processing"
+                              class="btn btn-warning text-primary py-2 px-3"
+                          >
+                              Register!
+                          </button>
+                      </div>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </AppLayout>
 </template>
-<script>
-import { Inertia } from '@inertiajs/inertia'
-import AppLayout from '../Layout/App.vue';
-import { InertiaLink } from '@inertiajs/inertia-vue3';
-import { route } from 'ziggy-js';
-export default {
-  
 
-  name: 'Signup',
+<script>
+import AppLayout from "../Layout/App.vue";
+import { Link, useForm } from "@inertiajs/vue3";
+
+export default {
   components: {
-    AppLayout,
-    InertiaLink,
+      AppLayout,
+      Link,
   },
-  data() {
-    return {
-      form: {
-        name: '',
-        email: '',
-        password: '',
-        password_confirmation: '',
-        // Add other form fields here
-      },
-    };
+  props: {
+      errors: Object,
   },
-  
-  methods: {
-  signup(event) {
-    event.preventDefault();
-    this.$inertia.post(route('register'), this.form)
-      .then(response => {
-        if (response.status === 200) {
-          // Handle successful registration
-        } else {
-          // Handle errors
-        }
+  setup() {
+      const form = useForm({
+          name: "",
+          phone_number: "",
+          email: "",
+          password: "",
+          password_confirmation: "",
       });
+
+      return { form };
   },
-}
 };
 </script>
 
-
-
+<style scoped>
+  #section {
+      margin-top: 140px;
+      margin-bottom: 180px;
+  }
+</style>
