@@ -3,8 +3,8 @@
     <nav>
         <ul>
             <li><inertia-link href="/" >Home</inertia-link></li>
-            <li><inertia-link href="/movies">Movies</inertia-link></li>
-            <li><inertia-link href="/login">Login</inertia-link></li>
+            <li><inertia-link href="/posts">Post movies</inertia-link></li>
+            <li><inertia-link href="/signup">Login</inertia-link></li>
             <li><inertia-link href="/favorites">Favorites</inertia-link></li>
         </ul>
     </nav>
