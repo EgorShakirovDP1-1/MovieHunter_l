@@ -7,7 +7,7 @@
     <template #default>
 <div>
     <h1>Login</h1>
-    <form class="form mt-5" @submit.prevent="form.post('login')">
+    <form class="form mt-5" @submit.prevent="login">
                     <h1>Login</h1>
                     <div class="form-group mt-3">
                         <label for="email" class="text-dark">Email:</label><br>
@@ -28,9 +28,7 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-end align-items-center my-3">
-                        <div class="text-right">
-                            <a :href="route('register')" class="text-dark lead">Register here</a>
-                        </div>
+                     
                         <div class="form-group ms-3">
                             <button type="submit" :disabled="form.processing" class="btn btn-warning text-primary py-2 px-3">Login!</button>
                         </div>
@@ -47,8 +45,10 @@
 </template>
 
 <script>
+import { Inertia } from '@inertiajs/inertia';
 import AppLayout from '../Layout/App.vue';
 import { InertiaLink, useForm } from '@inertiajs/inertia-vue3';
+import axios from 'axios';
 export default {
     components: {
         AppLayout,
@@ -65,5 +65,21 @@ export default {
 
         return { form };
     },
-};
+    methods: {
+        async login(){
+            try {
+                const response = await axios.post('/api/login',
+                    {
+                        email: this.email,
+                        password: this.password
+                    }
+                );
+            
+            localStorage.setItem('authToken', response.data.token);
+            Inertia.visit('/');
+        } catch(error){
+            console.error(error);
+        }
+    }
+}};
 </script>

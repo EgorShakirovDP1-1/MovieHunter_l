@@ -20609,14 +20609,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     _: 1 /* STABLE */
   })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
-    href: "/movies"
+    href: "/posts"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Movies")];
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Post movies")];
     }),
     _: 1 /* STABLE */
   })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
-    href: "/login"
+    href: "/signup"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Login")];
@@ -28569,6 +28569,14 @@ var map = {
 		"./resources/js/Pages/Login.vue",
 		"resources_js_Pages_Login_vue"
 	],
+	"./Post.vue": [
+		"./resources/js/Pages/Post.vue",
+		"resources_js_Pages_Post_vue"
+	],
+	"./Profile.vue": [
+		"./resources/js/Pages/Profile.vue",
+		"resources_js_Pages_Profile_vue"
+	],
 	"./Signup.vue": [
 		"./resources/js/Pages/Signup.vue",
 		"resources_js_Pages_Signup_vue"
@@ -28852,7 +28860,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"axios","version":"0.21.4","de
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_Pages_Home_vue":1,"resources_js_Pages_Login_vue":1,"resources_js_Pages_Signup_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_Pages_Home_vue":1,"resources_js_Pages_Login_vue":1,"resources_js_Pages_Post_vue":1,"resources_js_Pages_Profile_vue":1,"resources_js_Pages_Signup_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

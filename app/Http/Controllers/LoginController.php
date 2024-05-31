@@ -1,19 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Inertia\Inertia;
 
 class LoginController extends Controller
 {
-    public function showLogin()
-    {
-     
-            return Inertia::render('Login', [
-                'canLogin' => Route::has('login'),
-                'canRegister' => Route::has('register'),]);
-        }
   
-    }
-    
-
+}

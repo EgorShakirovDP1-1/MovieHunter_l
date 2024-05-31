@@ -91,13 +91,8 @@
                       </div>
                   </div>
                   <div
-                      class="d-flex justify-content-end align-items-center my-3"
-                  >
-                      <div class="text-right">
-                          <a :href="route('login')" class="text-dark lead"
-                              >Login here</a
-                          >
-                      </div>
+                      class="d-flex justify-content-end align-items-center my-3">
+
                       <div class="form-group ms-3">
                           <button
                               type="submit"
@@ -108,24 +103,42 @@
                           </button>
                       </div>
                   </div>
+                  
+                 
+
               </form>
+              <div class="text-right">
+                          <a :href="route('login')" class="text-dark lead"
+                              >Login here</a
+                          >
+                      </div>
+              <Link :href="route('logout')" class="btn btn-primary d-block py-2">>Logout</Link>
           </div>
+          <button @click="destroy(user.id)" type="submit" class="btn btn-danger d-block py-2 width-216"
+                            aria-label="Delete Account Button">
+                            <i class="bi bi-trash-fill me-2"></i> Delete Account
+                        </button>
       </div>
   </AppLayout>
 </template>
 
 <script>
-import AppLayout from "../Layout/App.vue";
-import { Link, useForm } from "@inertiajs/vue3";
-
-export default {
-  components: {
-      AppLayout,
-      Link,
-  },
-  props: {
-      errors: Object,
-  },
+    import AppLayout from "../Layout/App.vue";
+    import { Link, useForm } from "@inertiajs/vue3";
+    import { Inertia } from '@inertiajs/inertia'
+    export default {
+    components: {
+        AppLayout,
+        Link,
+    },
+    props: {
+        errors: Object,
+        user: {
+            type: Object,
+            required: true,
+            
+        }
+    },
   setup() {
       const form = useForm({
           name: "",
@@ -135,7 +148,21 @@ export default {
           password_confirmation: "",
       });
 
-      return { form };
+      const destroy = (id) => {
+          if (confirm("Are you sure?")) {
+              Inertia.delete(route("delete", id));
+          }
+      };
+
+      return { form, destroy };
+  },
+  methods: {
+    logout() {
+      Inertia.post("/logout")
+        .then(() => {
+          Inertia.visit('/login');
+        });
+    },
   },
 };
 </script>
